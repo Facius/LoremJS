@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Models</h1>
+  </div>
+
+  <div class="col-xs-4 box">
+    <h2>Models:</h2>
+
+    <p ng-if="isLoading">Loading</p>
+
+    <div>
+      <div ng-repeat="model in models | orderBy:desc">
+        <h3>{{model.name}}</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-8 box">
+    <h2>Model Editor:</h2>
+
+    <p ng-if="isLoading">Loading</p>
+
+    <label>
+      Name:
+      <input type="text" ng-model="model.name">
+    </label>
+
+
+    <h3>Values</h3>
+
+    <div fa-object-array="model.properties">
+
+
+      <div ng-repeat="property in model.properties">
+        <label>
+          Key:
+          <input type="text" ng-model="property.key">
+        </label>
+
+        <label>
+          Type:
+          <select ng-model="property.type">
+            <option value="" disabled>type</option>
+            <option ng-repeat="datatype in datatypes" value="{{datatype.name}}">{{datatype.name}}</option>
+          </select>
+        </label>
+        <span class="glyphicon glyphicon-minus" ng-click="remove($index)"></span>
+      </div>
+
+      <span class="glyphicon glyphicon-plus" ng-click="add()"></span>
+
+    </div>
+
+  </div>
+
+
+</div>
