@@ -16,7 +16,7 @@
         console.log(attrs.faDatatypeAttributes);
 
         scope.$watch(attrs.faDatatypeAttributes, function (newVal, oldVal) {
-          console.log(newVal, oldVal);
+          //console.log(newVal, oldVal);
           if (newVal) {
             setDatatype(newVal);
           }
