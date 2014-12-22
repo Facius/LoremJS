@@ -17,7 +17,7 @@
 
         scope.$watch(attrs.faDatatypeAttributes, function (newVal, oldVal) {
           console.log(newVal, oldVal);
-          if(newVal){
+          if (newVal) {
             setDatatype(newVal);
           }
         });
@@ -27,7 +27,7 @@
           scope.isLoading = true;
           var promise = datatypesService.getDatatype(name);
           promise.then(function (datatype) {
-            console.log(datatype.func);
+            //console.log(datatype.func);
 
             scope.datatype = datatype;
             scope.isLoading = false;

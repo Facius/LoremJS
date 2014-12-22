@@ -45,9 +45,7 @@
           </select>
         </label>
 
-        <div ng-if="property.type" fa-datatype-attributes="property.type">
-        </div>
-
+        <div ng-if="property.type" fa-datatype-attributes="property.type"></div>
 
         <span class="glyphicon glyphicon-minus" ng-click="remove($index)"></span>
       </div>
@@ -56,6 +54,10 @@
 
     </div>
 
+
+    <h3>JSON</h3>
+
+    <div>{{model | json}}</div>
   </div>
 
 

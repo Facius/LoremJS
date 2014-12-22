@@ -1,1 +1,7 @@
-<div>{{datatype | json}}</div>
+<div>
+  <div ng-repeat=" attr in datatype.attrs" ng-init="modelIndex = $index">{{attr.title}}
+    <div fa-dynamic-input="{{attr.type}}">
+      <span class="loader inline">Loading</span>
+    </div>
+  </div>
+</div>

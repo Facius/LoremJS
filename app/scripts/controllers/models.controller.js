@@ -12,7 +12,7 @@
     var promise = datatypesService.getDatatypes();
     $scope.isLoading = true;
     promise.then(function (datatypes) {
-      console.log(datatypes);
+      //console.log(datatypes);
       $scope.datatypes = datatypes;
       $scope.isLoading = false;
     }, function (reason) {
@@ -21,8 +21,11 @@
     });
 
     $scope.model = {
-      name: 'test',
-      properties: []
+      'name': 'ModelOne',
+      'properties': [
+        {'type': 'boolean', 'key': 'Name'},
+        {'key': 'Age', 'type': 'integer'}
+      ]
     };
   }
 
