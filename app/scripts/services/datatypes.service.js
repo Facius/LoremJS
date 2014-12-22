@@ -10,7 +10,8 @@
   function datatypesService($http) {
 
     return {
-      getDatatypes: getDatatypes
+      getDatatypes: getDatatypes,
+      getDatatype: getDatatype
     };
 
     function getDatatypes() {
@@ -23,13 +24,22 @@
         }, function (reason) {
           console.error('Failed: ' + reason);
         });
+    }
 
-      //  var deferred = $q.defer();
-      //  setTimeout(function () {
-      //    deferred.resolve({data: datatypes});
-      //  }, 1000);
-      //  return deferred.promise;
+    function getDatatype(name) {
 
+      return $http.get('/data/datatypes.js')
+        .then(function (response) {
+          /*jslint evil: true */
+          var datatypes = eval(response.data);
+
+          var filtered = datatypes.filter(function (el) {
+            return el.name === name;
+          });
+          return filtered[0];
+        }, function (reason) {
+          console.error('Failed: ' + reason);
+        });
     }
   }
 })();

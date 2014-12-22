@@ -44,6 +44,11 @@
             <option ng-repeat="datatype in datatypes" value="{{datatype.name}}">{{datatype.name}}</option>
           </select>
         </label>
+
+        <div ng-if="property.type" fa-datatype-attributes="property.type">
+        </div>
+
+
         <span class="glyphicon glyphicon-minus" ng-click="remove($index)"></span>
       </div>
 
