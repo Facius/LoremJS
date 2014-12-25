@@ -12,7 +12,7 @@
       scope: true,
       link: function (scope, element, attrs) {
 
-        console.log(attrs.faDynamicInput);
+        //console.log(attrs.faDynamicInput);
         switch (attrs.faDynamicInput) {
           case 'textstring':
             loadDatatype('/views/dynamic-input/textstring.html');
@@ -26,8 +26,10 @@
           case 'float':
             loadDatatype('/views/dynamic-input/float.html');
             break;
+          case 'date':
+            loadDatatype('/views/dynamic-input/date.html');
+            break;
         }
-
 
         function setTemplate(html) {
           element.html(html).show();

@@ -10,7 +10,8 @@
 
     <div>
       <div ng-repeat="model in models | orderBy:desc">
-        <h3>{{model.name}}</h3>
+        <h3>{{model.name}} <span class="glyphicon glyphicon-pencil" ng-click="editModel('{{model.name}}')"></span>
+        </h3>
       </div>
     </div>
   </div>
@@ -41,7 +42,9 @@
           Type:
           <select ng-model="property.type">
             <option value="" disabled>type</option>
-            <option ng-repeat="datatype in datatypes" value="{{datatype.name}}">{{datatype.name}}</option>
+            <option ng-repeat="datatype in datatypes" value="{{datatype.name}}"
+                    ng-selected="property.type == datatype.name">{{datatype.name}}
+            </option>
           </select>
         </label>
 

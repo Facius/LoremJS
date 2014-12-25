@@ -15,20 +15,18 @@
       link: function (scope, element, attrs) {
         console.log(attrs.faDatatypeAttributes);
 
-        scope.$watch(attrs.faDatatypeAttributes, function (newVal, oldVal) {
-          //console.log(newVal, oldVal);
-          if (newVal) {
+        var val = null;
+        scope.$watch(attrs.faDatatypeAttributes, function (newVal) {
+          if (newVal && newVal !== val) {
+            val = newVal;
             setDatatype(newVal);
           }
         });
-
 
         function setDatatype(name) {
           scope.isLoading = true;
           var promise = datatypesService.getDatatype(name);
           promise.then(function (datatype) {
-            //console.log(datatype.func);
-
             scope.datatype = datatype;
             scope.isLoading = false;
           }, function (reason) {
